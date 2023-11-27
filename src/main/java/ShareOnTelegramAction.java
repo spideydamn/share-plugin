@@ -7,9 +7,16 @@ public class ShareOnTelegramAction extends AnAction {
 
     @Override
     public void actionPerformed(@org.jetbrains.annotations.NotNull AnActionEvent anActionEvent) {
-        Messages.showYesNoDialog("Do you want to share the code on Telegram?", "Sharing", Messages.getQuestionIcon());
+        if (Messages.showYesNoDialog("Do you want to share the code on Telegram?", "Sharing", Messages.getQuestionIcon()) != 0) {
+            return;
+        }
 
         String code = anActionEvent.getData(PlatformDataKeys.FILE_TEXT);
+
+        if (code == null) {
+            Messages.showErrorDialog("File not selected", "Failed to Share");
+            return;
+        }
 
         String url = String.format("https://telegram.me/share/url?url=```%s```", code);
 
