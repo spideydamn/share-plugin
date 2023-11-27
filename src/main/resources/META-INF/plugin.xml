@@ -29,8 +29,12 @@
     </extensions>
 
     <actions>
-        <action id="ShareAction" class="ShareAction"
-                text="Share" description="Share the code" icon="/icons/paper-plane.png">
+        <action id="ShareOnTelegramAction" class="ShareOnTelegramAction"
+                text="ShareOnTelegram" description="Share the code on Telegram" icon="/icons/telegram.png">
+            <add-to-group group-id="ToolbarRunGroup" anchor="first" />
+        </action>
+        <action id="ShareOnVKAction" class="ShareOnVKAction"
+                text="ShareOnVK" description="Share the code on VK" icon="/icons/VK.png">
             <add-to-group group-id="ToolbarRunGroup" anchor="first" />
         </action>
     </actions>
